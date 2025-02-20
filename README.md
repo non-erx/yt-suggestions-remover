@@ -11,7 +11,7 @@ A clean, minimalist userstyle that removes distracting suggestions and navigatio
 
 ## Installation
 1. Install Stylus browser extension
-2. Open [this]() link
+2. Open [this](https://userstyles.world/style/20992/youtube-suggestions-remover) link
 3. Install and enjoy!
 
 ## Compatibility
