@@ -1,12 +1,11 @@
 /* ==UserStyle==
 @name         YouTube Suggestions Remover
-@description  Remove YouTube Suggestions
+@version      1.3
 @namespace    github.com/non-erx
-@version      1.0
+@description  A clean, minimalist userstyle that removes distracting suggestions and navigation elements from YouTube, helping you focus on content.
 @author       non-erx
-@homepageURL  non-erx.dev
 @license      MIT
-= =UserStyle== */
+==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
     /* Hide unwanted navigation elements */
@@ -59,6 +58,30 @@
         width: 344px !important;
     }
 
+    /* Fix video player size */
+    ytd-watch-flexy[theater] #player-theater-container {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: calc(100vh - 56px) !important;
+    }
+
+    ytd-watch-flexy:not([theater]) #primary-inner {
+        max-width: 1280px !important;
+        margin: 0 auto !important;
+    }
+
+    ytd-watch-flexy:not([theater]) #player {
+        width: 100% !important;
+        max-width: 1280px !important;
+        margin: 0 auto !important;
+    }
+
+    ytd-watch-flexy #player-container-outer,
+    ytd-watch-flexy #player-container-inner,
+    ytd-watch-flexy #player-container {
+        max-width: none !important;
+    }
+
     /* Hide unwanted elements */
     #related,
     #secondary,
@@ -93,6 +116,13 @@
     ytd-tab-renderer {
         max-width: 1504px !important;
         margin: 0 auto !important;
+    }
+
+    /* Video details container */
+    ytd-watch-flexy #info {
+        max-width: 1280px !important;
+        margin: 0 auto !important;
+        padding: 0 24px !important;
     }
 
     /* Notification message */
