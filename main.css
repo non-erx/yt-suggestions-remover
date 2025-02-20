@@ -1,0 +1,124 @@
+/* ==UserStyle==
+@name         YouTube Suggestions Remover
+@description  Remove YouTube Suggestions
+@namespace    github.com/non-erx
+@version      1.0
+@author       non-erx
+@homepageURL  non-erx.dev
+@license      MIT
+= =UserStyle== */
+
+@-moz-document domain("youtube.com") {
+    /* Hide unwanted navigation elements */
+    ytd-mini-guide-renderer #items > ytd-mini-guide-entry-renderer:not(:nth-child(3)),
+    ytd-guide-renderer #sections > ytd-guide-section-renderer:first-child,
+    ytd-guide-renderer #sections > ytd-guide-section-renderer:not(:nth-child(2)),
+    ytd-mini-guide-entry-renderer[aria-label="Home"],
+    ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+    ytd-mini-guide-entry-renderer[aria-label="You"],
+    ytd-guide-entry-renderer[title="Home"],
+    ytd-guide-entry-renderer[title="Shorts"],
+    ytd-guide-entry-renderer[title="You"],
+    tp-yt-app-drawer #sections > ytd-guide-section-renderer:not(:nth-child(2)) {
+        display: none !important;
+    }
+
+    /* Hide menu button */
+    ytd-masthead #start ytd-topbar-menu-button-renderer button,
+    ytd-masthead #guide-button {
+        display: none !important;
+    }
+
+    /* Set proper channel layout containers */
+    ytd-browse[page-subtype="channels"] {
+        width: 100% !important;
+    }
+
+    ytd-two-column-browse-results-renderer {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+
+    /* Center the content area */
+    ytd-rich-grid-renderer {
+        max-width: 1504px !important;
+        margin: 0 auto !important;
+        padding: 0 24px !important;
+    }
+
+    /* Proper grid layout */
+    ytd-rich-grid-row {
+        margin: 0 -8px !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* Video item styling */
+    ytd-rich-item-renderer {
+        margin: 0 8px 24px !important;
+        width: 344px !important;
+    }
+
+    /* Hide unwanted elements */
+    #related,
+    #secondary,
+    .ytp-ce-element,
+    .ytp-endscreen-content,
+    .ytp-suggested-video-overlay,
+    ytd-watch-next-secondary-results-renderer,
+    ytd-item-section-renderer ytd-shelf-renderer,
+    ytd-browse[page-subtype="home"] ytd-rich-grid-renderer {
+        display: none !important;
+    }
+
+    /* Keep channel elements visible */
+    ytd-two-column-browse-results-renderer,
+    ytd-rich-grid-renderer,
+    ytd-channel-video-player-renderer,
+    ytd-playlist-renderer,
+    ytd-browse[page-subtype="channels"] #header,
+    ytd-browse[page-subtype="channels"] ytd-channel-sub-menu-renderer,
+    ytd-browse[page-subtype="channels"] #tabs-inner-container {
+        display: block !important;
+    }
+
+    /* Center channel header */
+    ytd-channel-sub-menu-renderer {
+        max-width: 1504px !important;
+        margin: 0 auto !important;
+        padding: 0 24px !important;
+    }
+
+    /* Fix tab container width */
+    ytd-tab-renderer {
+        max-width: 1504px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Notification message */
+    body::after {
+        content: "Suggestions Removed" !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        background: var(--yt-spec-brand-background-primary, #fff) !important;
+        color: var(--yt-spec-text-primary, #0f0f0f) !important;
+        padding: 8px 16px !important;
+        border-radius: 20px !important;
+        z-index: 9999 !important;
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 14px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        animation: fadeInOut 5s forwards !important;
+        pointer-events: none !important;
+        user-select: none !important;
+    }
+
+    @keyframes fadeInOut {
+        0% { opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; }
+    }
+}
