@@ -7,7 +7,7 @@
 @license      MIT
 ==/UserStyle== */
 
-@-moz-document domain("youtube.com") {
+@-moz-document regexp("http(?:s)?:\/\/(?:|www\.)(?:|m\.)?(?!music\.)youtube\.com\/?(?:(?!jobs|settings\/connections)(?:.|[\?\&=\-_\/+])*)") {
     /* Hide unwanted navigation elements */
     ytd-mini-guide-renderer #items > ytd-mini-guide-entry-renderer:not(:nth-child(3)),
     ytd-guide-renderer #sections > ytd-guide-section-renderer:first-child,
